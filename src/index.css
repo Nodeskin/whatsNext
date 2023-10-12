@@ -1,13 +1,189 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+
+/* LANDING PAGE SECTION */
+.landing{
+  display: flex;
+  justify-content: center;
+  }
+
+.background{
+background-image: url("../src/assets/backgroundImage.png");
+height: 30em;
+  position: absolute;
+  top: 20px;
+  width: 40%;
+  background-size: cover;
+  filter: brightness(80%);
+  z-index: -1;
+  border-radius: 15px; 
+  
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.heading{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 28%;
+  margin-top: 150px;
+}
+
+
+/* SIGNUP SECTION */
+
+.sign-up-head{
+  display: flex;
+  justify-content: center;
+}
+
+.sign-up{
+  border: 1px solid rebeccapurple;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 40%;
+
+}
+
+.sign-up h1{
+  margin-bottom: 0;
+ 
+}
+
+.input{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.input label{
+display: flex;
+justify-content: center;
+margin-right: 20px;
+
+}
+
+.select{
+  width: 66%;
+}
+
+.input-fields label{
+  text-align: left;
+}
+
+
+/* TASK HEADER SECTION */
+.tasks-header h1{
+color: rgb(25, 140, 140);
+text-align: left;
+
+}
+
+
+
+/* TASK PAGE HEADER SECTION */
+.button-container{
+  display: flex;
+  justify-content: center;
+  
+
+}
+
+.button-section{
+  display: flex;
+  justify-content: center;
+  border: 2px solid wheat;
+}
+
+.task-buttons{
+  display: flex;
+  flex-direction: column;
+  align-items: self-start;
+  padding: 5px;
+}
+
+
+/* NEW TASK SECTION */
+
+.form-container{
+  display: flex;
+  justify-content: center;
+  /* width: 70%; */
+  /* border: 2px solid red; */
+
+  
+}
+
+.new-task{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 15px;
+  /* width: 71%; */
+  /* border: 2px solid blue; */
+  
+}
+
+
+.new-task h1{
+  font-size: medium;
+}
+
+.textarea{
+  border: 2px solid grey;
+  background-color: rgb(177, 175, 175);
+  border-radius: 5px;
+  border: none;
+  border-bottom: 2px solid grey;
+  padding: 5px;
+
+}
+
+.new-task-input{
+  margin-bottom: 10px;
+ 
+}
+
+.new-task-input input{
+  background-color: rgb(177, 175, 175) ;
+  border: none;
+  border-bottom: 2px solid grey;
+  padding: 5px;
+}
+
+/* TASK SECTION */
+.task-container{
+display: flex;
+justify-content: center;
+}
+
+
+.tasks{
+  display: flex;
+  justify-content: center;
+  width: 40%;
+  /* border: 1px solid blue; */
+  padding: 10px;
+
+}
+
+.tasky{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 71%;
+  padding: 10px;
+  background-color: dimgray;
+ 
+
+
+}
+
+.tasky h3{
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.tasky p {
+   margin: 0;
 }
