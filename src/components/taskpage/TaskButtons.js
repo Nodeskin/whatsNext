@@ -1,12 +1,16 @@
-const TaskButtons = ({showAdd, showList }) => {
+const TaskButtons = ({ showAdd, showList, showTodayTask }) => {
   const style = {
     marginRight: "20px",
   };
   return (
     <div>
-      <button style={style} onClick={showList}>Task List</button>
-      <button style={style}>Today's Task</button>
-      <button onClick={showAdd} > New Task </button>
+      <button style={style} onClick={showList}>
+        Task List
+      </button>
+      <button style={style} onClick={showTodayTask}>
+        Today's Task
+      </button>
+      <button onClick={showAdd}> New Task </button>
     </div>
   );
 };

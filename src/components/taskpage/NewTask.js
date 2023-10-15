@@ -1,10 +1,5 @@
-import React, { useState } from "react";
-
-
 const NewTask = ({ onAdd, newTask, setNewTask }) => {
-
-  const {text, reminder, date, time} = newTask
-
+  const { text, reminder, date, time } = newTask;
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -16,11 +11,11 @@ const NewTask = ({ onAdd, newTask, setNewTask }) => {
 
     onAdd(newTask);
     setNewTask({
-      text : "",
+      text: "",
       reminder: false,
       date: "",
       time: "",
-    })
+    });
   };
 
   return (
@@ -33,7 +28,7 @@ const NewTask = ({ onAdd, newTask, setNewTask }) => {
             className="textarea"
             placeholder="Enter new task"
             value={text}
-            onChange={(e) => setNewTask({...newTask, text: e.target.value })}
+            onChange={(e) => setNewTask({ ...newTask, text: e.target.value })}
           ></textarea>{" "}
         </div>
 
@@ -42,7 +37,9 @@ const NewTask = ({ onAdd, newTask, setNewTask }) => {
             type="checkbox"
             value={reminder}
             checked={reminder}
-            onChange={(e) => setNewTask({...newTask, reminder: e.currentTarget.value })}
+            onChange={(e) =>
+              setNewTask({ ...newTask, reminder: e.currentTarget.value })
+            }
           />
           <label>Set Reminder</label>
         </div>
@@ -52,7 +49,7 @@ const NewTask = ({ onAdd, newTask, setNewTask }) => {
             type="date"
             placeholder=" Set Date"
             value={date}
-            onChange={(e)=> setNewTask({...newTask, date: e.target.value })}
+            onChange={(e) => setNewTask({ ...newTask, date: e.target.value })}
           />
         </div>
 
@@ -61,7 +58,7 @@ const NewTask = ({ onAdd, newTask, setNewTask }) => {
             type="time"
             placeholder=" Set Time"
             value={time}
-            onChange={(e)=> setNewTask({...newTask, time: e.target.value })}
+            onChange={(e) => setNewTask({ ...newTask, time: e.target.value })}
           />
         </div>
 

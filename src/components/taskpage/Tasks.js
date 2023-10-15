@@ -1,11 +1,17 @@
 import React from "react";
 import Task from "./Task";
 
-const Tasks = ({ tasks, onDelete, editTask}) => {
+const Tasks = ({ tasks, onDelete, editTask, showFiltered, todayTasks }) => {
+  console.log(showFiltered);
   return (
     <div>
-      {tasks.map((task) => (
-        <Task key={task.id} task={task} onDelete= {onDelete} editTask={editTask} />
+      {(showFiltered ? todayTasks : tasks).map((task) => (
+        <Task
+          key={task.id}
+          task={task}
+          onDelete={onDelete}
+          editTask={editTask}
+        />
       ))}
     </div>
   );

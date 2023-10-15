@@ -1,7 +1,7 @@
 import React from "react";
 import { FaTimes } from "react-icons/fa";
 
-const Task = ({ task, onDelete , editTask}) => {
+const Task = ({ task, onDelete, editTask }) => {
   console.log(task);
   return (
     <div className="task-container">
@@ -15,15 +15,11 @@ const Task = ({ task, onDelete , editTask}) => {
             />{" "}
           </h3>
 
-          {/* {date ? (      
-          <div> {date}</div>
-      ) : null} */}
-
           <p>
             {" "}
             {task.date} &nbsp; at &nbsp; {task.time}{" "}
           </p>
-          <button onClick={()=>editTask(task)}>Edit</button>
+          <button onClick={() => editTask(task)}>Edit</button>
         </div>
       </div>
     </div>
