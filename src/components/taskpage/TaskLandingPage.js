@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import moment from "moment";
 import Header from "./Header";
 import NewTask from "./NewTask";
@@ -14,22 +14,23 @@ const TaskLandingPage = () => {
   const [showFiltered, setShowFiltered] = useState(false);
   const [showAddNew, setShowAddNew] = useState(false);
   const [showLists, setShowLists] = useState(false);
-  const [tasks, setTasks] = useState([
-    {
-      id: 1,
-      text: "Doctors Appointment",
-      date: "04/17/2023",
-      time: "09:40",
-      reminder: true,
-    },
-    {
-      id: 2,
-      text: "Kill a mockingbird",
-      date: "09/17/2023",
-      time: "16:36",
-      reminder: true,
-    },
-  ]);
+  const [tasks, setTasks] = useState([]);
+
+  useEffect(() => {
+    const getTasks = async () => {
+      const tasksFromServer = await fetchTasks();
+      setTasks(tasksFromServer);
+    };
+    getTasks();
+  }, []);
+
+  //fetch tasks
+  const fetchTasks = async () => {
+    const res = await fetch("http://localhost:5000/tasks");
+    const data = await res.json();
+
+    return data;
+  };
 
   const showAdd = () => {
     setShowAddNew(!showAddNew);
@@ -37,23 +38,45 @@ const TaskLandingPage = () => {
   };
 
   const showList = () => {
-    setShowLists(!showLists);
+    setShowLists(true);
     setShowAddNew(false);
-    setShowFiltered(!showFiltered);
+    setShowFiltered(false);
   };
 
-  const onDelete = (id) => {
+  const onDelete = async (id) => {
+    await fetch(`http://localhost:5000/tasks/${id}`, {
+      method: "DELETE",
+    });
+
     setTasks(tasks.filter((task) => task.id !== id));
   };
 
-  const onAdd = (task) => {
+  const toggleReminder = (id) => {
+    setTasks(
+      tasks.map((task) =>
+        task.id === id ? { ...task, reminder: !task.reminder } : task
+      )
+    );
+  };
+
+  const onAdd = async (task) => {
+    const res = await fetch("http://localhost:5000/tasks", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(task),
+    });
+
+    const data = res.json();
+
     const taskIndex = tasks.findIndex((el) => el.id === task.id);
     if (taskIndex >= 0) {
       return tasks.splice(taskIndex, 1, task);
     }
-    const id = Math.floor(Math.random() * 1000);
-    const addNew = { id, ...task };
-    setTasks([...tasks, addNew]);
+    // const id = Math.floor(Math.random() * 1000);
+    // const addNew = { id, ...task };
+    setTasks([...tasks, data]);
   };
 
   const editTask = (task) => {
@@ -72,11 +95,11 @@ const TaskLandingPage = () => {
     setShowFiltered(true);
   };
 
-//TESTING DATE FORMATES
+  //TESTING DATE FORMATES
   // console.log(moment().startOf('month'))
   // console.log(tasks)
   //  console.log(moment( moment(new Date()).format("YYYY-MM-DD")).isSame(moment("10/14/2023").format("MM/DD/YYYY")))
-  
+
   return (
     <div>
       <Header
@@ -94,6 +117,7 @@ const TaskLandingPage = () => {
           editTask={editTask}
           todayTasks={todayTasks}
           showFiltered={showFiltered}
+          onToggle={toggleReminder}
         />
       )}
     </div>

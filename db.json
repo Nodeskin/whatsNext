@@ -1,0 +1,32 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "text": "Doctors Appointment",
+      "date": "04/17/2023",
+      "time": "09:40",
+      "reminder": true
+    },
+    {
+      "id": 2,
+      "text": "Kill a mockingbird",
+      "date": "09/17/2023",
+      "time": "16:36",
+      "reminder": true
+    },
+    {
+      "text": "happy",
+      "reminder": "false",
+      "date": "2023-10-18",
+      "time": "23:25",
+      "id": 3
+    },
+    {
+      "text": "Hey check me out!!",
+      "reminder": "false",
+      "date": "2023-10-24",
+      "time": "23:47",
+      "id": 4
+    }
+  ]
+}

@@ -1,8 +1,6 @@
-import React, { useState } from "react";
 import TaskButtons from "./TaskButtons";
 
 const Header = ({ showAdd, showList, showTodayTask }) => {
-
   return (
     <div className="button-container">
       <div className="button-section">
