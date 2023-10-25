@@ -2,7 +2,7 @@ import React from "react";
 import { FaTimes } from "react-icons/fa";
 
 const Task = ({ task, onDelete, editTask, onToggle }) => {
-  console.log(task);
+  // console.log(task);
   return (
     <div className="task-container">
       <div className="tasks">

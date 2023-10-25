@@ -17,19 +17,14 @@ const TaskLandingPage = () => {
   const [tasks, setTasks] = useState([]);
 
   useEffect(() => {
-    const getTasks = async () => {
-      const tasksFromServer = await fetchTasks();
-      setTasks(tasksFromServer);
-    };
-    getTasks();
+    fetchTasks();
   }, []);
 
   //fetch tasks
   const fetchTasks = async () => {
     const res = await fetch("http://localhost:5000/tasks");
     const data = await res.json();
-
-    return data;
+    setTasks(data);
   };
 
   const showAdd = () => {
@@ -60,20 +55,26 @@ const TaskLandingPage = () => {
   };
 
   const onAdd = async (task) => {
+    const taskIndex = tasks.findIndex((el) => el.id === task.id);
+    let method = "POST"
+    if (taskIndex >= 0) {
+      method = "PUT"
+      return tasks.splice(taskIndex, 1, task);
+    }
+
+
     const res = await fetch("http://localhost:5000/tasks", {
-      method: "POST",
+      method,
       headers: {
         "Content-type": "application/json",
       },
       body: JSON.stringify(task),
     });
 
-    const data = res.json();
+    const data = await res.json();
+    console.log(data);
 
-    const taskIndex = tasks.findIndex((el) => el.id === task.id);
-    if (taskIndex >= 0) {
-      return tasks.splice(taskIndex, 1, task);
-    }
+   
     // const id = Math.floor(Math.random() * 1000);
     // const addNew = { id, ...task };
     setTasks([...tasks, data]);

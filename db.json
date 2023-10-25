@@ -8,25 +8,18 @@
       "reminder": true
     },
     {
-      "id": 2,
-      "text": "Kill a mockingbird",
-      "date": "09/17/2023",
-      "time": "16:36",
-      "reminder": true
+      "text": "New one",
+      "reminder": "false",
+      "date": "2023-10-25",
+      "time": "15:16",
+      "id": 10
     },
     {
-      "text": "happy",
+      "text": "Another one",
       "reminder": "false",
-      "date": "2023-10-18",
-      "time": "23:25",
-      "id": 3
-    },
-    {
-      "text": "Hey check me out!!",
-      "reminder": "false",
-      "date": "2023-10-24",
-      "time": "23:47",
-      "id": 4
+      "date": "2023-10-25",
+      "time": "15:20",
+      "id": 11
     }
   ]
 }
