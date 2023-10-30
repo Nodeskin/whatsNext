@@ -90,7 +90,9 @@ text-align: left;
 .button-section{
   display: flex;
   justify-content: center;
-  border: 2px solid wheat;
+  border: 2px solid rgb(182, 123, 13);
+  background-color: rgb(62, 62, 162);
+
 }
 
 .task-buttons{
@@ -100,6 +102,9 @@ text-align: left;
   padding: 5px;
 }
 
+.task-buttons h1{
+  color: rgb(182, 123, 13);
+}
 
 /* NEW TASK SECTION */
 
