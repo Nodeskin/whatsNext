@@ -8,13 +8,6 @@
       "reminder": true
     },
     {
-      "text": "New one",
-      "reminder": "false",
-      "date": "2023-10-25",
-      "time": "15:16",
-      "id": 10
-    },
-    {
       "text": "Another one",
       "reminder": "false",
       "date": "2023-10-25",

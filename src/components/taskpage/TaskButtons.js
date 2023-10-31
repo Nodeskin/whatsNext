@@ -4,13 +4,13 @@ const TaskButtons = ({ showAdd, showList, showTodayTask }) => {
   };
   return (
     <div>
-      <button className="task-butts"  style={style} onClick={showList}>
+      <button className="task-button"  style={style} onClick={showList}>
         Task List
       </button>
-      <button style={style} onClick={showTodayTask}>
+      <button className="task-button" style={style} onClick={showTodayTask}>
         Today's Task
       </button>
-      <button onClick={showAdd}> New Task </button>
+      <button className="task-button" onClick={showAdd}> New Task </button>
     </div>
   );
 };

@@ -5,7 +5,7 @@ const Task = ({ task, onDelete, editTask, onToggle }) => {
   // console.log(task);
   return (
     <div className="task-container">
-      <div className="tasks">
+      {/* <div className="tasks"> */}
         <div className= {`tasky ${task.reminder ? 'taskReminder' : ''}`}  onDoubleClick={()=> onToggle(task.id)}>
           <h3>
             {task.text}{" "}
@@ -22,7 +22,7 @@ const Task = ({ task, onDelete, editTask, onToggle }) => {
           <button onClick={() => editTask(task)}>Edit</button>
         </div>
       </div>
-    </div>
+    // </div>
   );
 };
 

@@ -102,24 +102,28 @@ const TaskLandingPage = () => {
   //  console.log(moment( moment(new Date()).format("YYYY-MM-DD")).isSame(moment("10/14/2023").format("MM/DD/YYYY")))
 
   return (
-    <div>
-      <Header
-        showAdd={showAdd}
-        showList={showList}
-        showTodayTask={showTodayTask}
-      />
+    <div className="landing-container">
+
+      <div className="landing-header">
+        <Header
+          showAdd={showAdd}
+          showList={showList}
+          showTodayTask={showTodayTask}
+        />
+      </div>
+
       {showAddNew && (
-        <NewTask onAdd={onAdd} newTask={newTask} setNewTask={setNewTask} />
+          <NewTask onAdd={onAdd} newTask={newTask} setNewTask={setNewTask} />
       )}
       {(showLists || showFiltered) && (
-        <Tasks
-          tasks={tasks}
-          onDelete={onDelete}
-          editTask={editTask}
-          todayTasks={todayTasks}
-          showFiltered={showFiltered}
-          onToggle={toggleReminder}
-        />
+          <Tasks 
+            tasks={tasks}
+            onDelete={onDelete}
+            editTask={editTask}
+            todayTasks={todayTasks}
+            showFiltered={showFiltered}
+            onToggle={toggleReminder}
+          />
       )}
     </div>
   );
