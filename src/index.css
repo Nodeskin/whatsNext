@@ -129,16 +129,22 @@ margin-right: 20px;
 }
 
 .new-task{
+  margin-top: 10px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 15px;
+  padding: 15px 10px;
   width: 35%;
+  border-radius: 5px;
+  background-color: rgb(196, 176, 176);
 }
 
 
-.new-task h1{
-  font-size: medium;
+.new-task p {
+  font-size: 17px;
+  font-weight: 600;
+  color: rgb(31, 121, 121);
+  margin-top: 0;
 }
 
 .form-text{
@@ -146,38 +152,62 @@ margin-right: 20px;
 }
 
 .textarea{
-  border: 2px solid grey;
-  background-color: rgb(177, 175, 175);
+  background-color: rgb(242, 237, 237);
   border-radius: 5px;
   border: none;
   border-bottom: 2px solid rgb(31, 121, 121);
-  padding: 8px;
+  padding: 5px 10px;
   width: 100%;
+  color: rgb(68, 35, 35);
+  font-weight: 500;
+  font-size: 15px;
+  outline: none;
 
+}
+
+.textarea:hover{
+  background-color: #fff;
 }
 
 .mid-input{
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 }
 
-/* .mid-input input{
-  background-color: rgb(177, 175, 175) ;
-  border: none;
-  border-bottom: 2px solid grey;
+.mid-input input{
+  margin-right: 10px;
   padding: 5px;
-} */
+  background-color: rgb(242, 237, 237);
+  color: rgb(107, 46, 46);
+  font-size: 13px;
+  border: none;
+  border-radius: 3px;
+  
+}
+
 
 .new-task-input{
   margin-bottom: 10px;
  
 }
 
+.bottom-input{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.submit-button input{
+  padding: 7px;
+  background-color: rgb(135, 185, 135);
+  font-size: 12px;
+  font-weight: 600;
+  border: none;
+  color: rgb(123, 93, 53);
+}
+
 
 /* TASK SECTION */
-.landing-tasks{
- 
-}
 
 .task-container{
 display: flex;
