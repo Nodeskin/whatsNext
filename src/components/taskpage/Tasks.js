@@ -1,11 +1,19 @@
 import React from "react";
 import Task from "./Task";
 
-const Tasks = ({ tasks, onDelete, editTask, showFiltered, todayTasks, onToggle }) => {
+const Tasks = ({
+  tasks,
+  onDelete,
+  editTask,
+  showFiltered,
+  todayTasks,
+  onToggle,
+}) => {
   console.log(showFiltered);
   return (
-    <div>
+    <>
       {(showFiltered ? todayTasks : tasks).map((task) => (
+        <div className="task-container">
         <Task
           key={task.id}
           task={task}
@@ -13,8 +21,9 @@ const Tasks = ({ tasks, onDelete, editTask, showFiltered, todayTasks, onToggle }
           editTask={editTask}
           onToggle={onToggle}
         />
+        </div>
       ))}
-    </div>
+    </>
   );
 };
 

@@ -78,23 +78,27 @@ margin-right: 20px;
 .landing-container{
   display: flex;
   flex-direction: column;
-  width: 100%;
+  align-items: center;
+  width: 30%;
+  background-color: rgb(217, 206, 206);
+  border-radius: 5px;
 }
 
 .landing-header{
   display: flex;
   flex-direction: column;
-  width: 35%;
+  width: 92%;
   padding: 10px;
-  background-color: rgb(224, 212, 212);
+  background-color: rgb(109, 175, 175);
   border-radius: 7px;
+  margin: 5px;
 }
 
 .landing-header h1{
   text-align: left;
   padding: 5px;
   font-family: sans-serif;
-  color: rgb(31, 121, 121);
+  color: rgb(9, 49, 49);
 }
 
 .task-buttons{
@@ -123,27 +127,37 @@ margin-right: 20px;
 }
 
 /* NEW TASK SECTION */
-
 .form-container{
-  display: flex;
+display: flex;
+flex-direction: column;
+align-items: center;
 }
 
+
+.landig-mid{
+ width: 92%;
+ display: flex;
+ flex-direction: column;
+
+}
+
+
 .new-task{
-  margin-top: 10px;
+  margin: 10px 0;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 15px 10px;
-  width: 35%;
+  padding: 15px 5px;
+  width: 100%;
   border-radius: 5px;
-  background-color: rgb(196, 176, 176);
+  background-color: rgb(109, 175, 175);
 }
 
 
 .new-task p {
   font-size: 17px;
   font-weight: 600;
-  color: rgb(31, 121, 121);
+  color: rgb(6, 32, 32);
   margin-top: 0;
 }
 
@@ -203,15 +217,27 @@ margin-right: 20px;
   font-size: 12px;
   font-weight: 600;
   border: none;
-  color: rgb(123, 93, 53);
+  color: rgb(0, 1, 0);
 }
 
 
 /* TASK SECTION */
 
+.landing-bottom{
+  width: 98%;
+  margin-top: 10px;
+  border-radius: 5px;
+ display: flex;
+ flex-direction: column;
+ align-items: flex-start;
+ background-color: rgb(109, 175, 175);
+
+}
+
+
 .task-container{
-display: flex;
-width: 100%;
+width: 85%;
+padding-left: 5px;
 
 }
 
@@ -223,14 +249,12 @@ width: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin-top: 10px;
-  width: 35%;
-  padding: 10px;
-  background-color: rgb(202, 189, 189);
+  margin: 10px 0;
+  width: 100%;
+  padding: 5px 15px;
+  background-color: rgb(120, 184, 155);
   border-radius: 7px;
  
-
-
 }
 
 .tasky h3{
@@ -239,11 +263,11 @@ width: 100%;
   display: flex;
   justify-content: space-between;
   width: 100%;
-  color: rgb(40, 96, 96);
+  color: rgb(9, 49, 49);
 }
 
 .tasky p {
    margin: 0;
    margin-bottom: 5px;
-   color: rgb(18, 57, 57);
+   color: rgb(9, 49, 49);
 }

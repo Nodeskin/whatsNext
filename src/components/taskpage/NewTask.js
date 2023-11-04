@@ -19,57 +19,53 @@ const NewTask = ({ onAdd, newTask, setNewTask }) => {
   };
 
   return (
-    <form className="form-container" onSubmit={onSubmit}>
-      <div className="new-task">
-        <p> Add a task</p>
-
-        <div className="form-text">
-          <textarea
-            className="textarea"
-            placeholder="Enter new task"
-            value={text}
-            onChange={(e) => setNewTask({ ...newTask, text: e.target.value })}
-          ></textarea>{" "}
-        </div>
-
-        <div className="mid-input">
-            <input
-              type="date"
-              placeholder=" Set Date"
-              value={date}
-              onChange={(e) => setNewTask({ ...newTask, date: e.target.value })}
-            />
-          
-            <input
-              type="time"
-              placeholder=" Set Time"
-              value={time}
-              onChange={(e) => setNewTask({ ...newTask, time: e.target.value })}
-            />
-          
-        </div>
-
-        <div className="bottom-input">
-
-          <div className="new-task-input">
-            <input
-              type="checkbox"
-              value={reminder}
-              checked={reminder}
-              onChange={(e) =>
-                setNewTask({ ...newTask, reminder: e.currentTarget.value })
-              }
-            />
-            <label>Set Reminder</label>
+    <div class="new-tasks">
+      <form className="form-container" onSubmit={onSubmit}>
+        <div className="new-task">
+          <p> Add a task</p>
+          <div className="form-text">
+            <textarea
+              className="textarea"
+              placeholder="Enter new task"
+              value={text}
+              onChange={(e) => setNewTask({ ...newTask, text: e.target.value })}
+            ></textarea>{" "}
           </div>
-
-          <div className="submit-button">
-            <input type="submit" value="Save Task" />
+          <div className="mid-input">
+              <input
+                type="date"
+                placeholder=" Set Date"
+                value={date}
+                onChange={(e) => setNewTask({ ...newTask, date: e.target.value })}
+              />
+      
+              <input
+                type="time"
+                placeholder=" Set Time"
+                value={time}
+                onChange={(e) => setNewTask({ ...newTask, time: e.target.value })}
+              />
+      
+          </div>
+          <div className="bottom-input">
+            <div className="new-task-input">
+              <input
+                type="checkbox"
+                value={reminder}
+                checked={reminder}
+                onChange={(e) =>
+                  setNewTask({ ...newTask, reminder: e.currentTarget.value })
+                }
+              />
+              <label>Set Reminder</label>
+            </div>
+            <div className="submit-button">
+              <input type="submit" value="Save Task" />
+            </div>
           </div>
         </div>
-
-      </div>
-    </form>
+      </form>
+    </div>
   );
 };
 

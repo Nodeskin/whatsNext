@@ -113,17 +113,21 @@ const TaskLandingPage = () => {
       </div>
 
       {showAddNew && (
-          <NewTask onAdd={onAdd} newTask={newTask} setNewTask={setNewTask} />
+          <div class="landig-mid">
+            <NewTask onAdd={onAdd} newTask={newTask} setNewTask={setNewTask} />
+          </div>
       )}
       {(showLists || showFiltered) && (
-          <Tasks 
-            tasks={tasks}
-            onDelete={onDelete}
-            editTask={editTask}
-            todayTasks={todayTasks}
-            showFiltered={showFiltered}
-            onToggle={toggleReminder}
-          />
+          <div className="landing-bottom">
+            <Tasks
+              tasks={tasks}
+              onDelete={onDelete}
+              editTask={editTask}
+              todayTasks={todayTasks}
+              showFiltered={showFiltered}
+              onToggle={toggleReminder}
+            />
+          </div>
       )}
     </div>
   );

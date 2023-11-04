@@ -8,18 +8,11 @@
       "reminder": true
     },
     {
-      "text": "Another one",
+      "text": "I wanna let go so bd",
       "reminder": "false",
-      "date": "2023-10-25",
-      "time": "15:20",
-      "id": 11
-    },
-    {
-      "text": "Hello Over ",
-      "reminder": "false",
-      "date": "2023-10-30",
-      "time": "11:34",
-      "id": 12
+      "date": "2023-11-01",
+      "time": "13:12",
+      "id": 13
     }
   ]
 }
