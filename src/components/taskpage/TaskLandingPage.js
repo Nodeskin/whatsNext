@@ -56,12 +56,11 @@ const TaskLandingPage = () => {
 
   const onAdd = async (task) => {
     const taskIndex = tasks.findIndex((el) => el.id === task.id);
-    let method = "POST"
+    let method = "POST";
     if (taskIndex >= 0) {
-      method = "PUT"
+      method = "PUT";
       return tasks.splice(taskIndex, 1, task);
     }
-
 
     const res = await fetch("http://localhost:5000/tasks", {
       method,
@@ -74,7 +73,6 @@ const TaskLandingPage = () => {
     const data = await res.json();
     console.log(data);
 
-   
     // const id = Math.floor(Math.random() * 1000);
     // const addNew = { id, ...task };
     setTasks([...tasks, data]);
@@ -103,7 +101,6 @@ const TaskLandingPage = () => {
 
   return (
     <div className="landing-container">
-
       <div className="landing-header">
         <Header
           showAdd={showAdd}
@@ -113,21 +110,21 @@ const TaskLandingPage = () => {
       </div>
 
       {showAddNew && (
-          <div class="landig-mid">
-            <NewTask onAdd={onAdd} newTask={newTask} setNewTask={setNewTask} />
-          </div>
+        <div class="landig-mid">
+          <NewTask onAdd={onAdd} newTask={newTask} setNewTask={setNewTask} />
+        </div>
       )}
       {(showLists || showFiltered) && (
-          <div className="landing-bottom">
-            <Tasks
-              tasks={tasks}
-              onDelete={onDelete}
-              editTask={editTask}
-              todayTasks={todayTasks}
-              showFiltered={showFiltered}
-              onToggle={toggleReminder}
-            />
-          </div>
+        <div className="landing-bottom">
+          <Tasks
+            tasks={tasks}
+            onDelete={onDelete}
+            editTask={editTask}
+            todayTasks={todayTasks}
+            showFiltered={showFiltered}
+            onToggle={toggleReminder}
+          />
+        </div>
       )}
     </div>
   );
