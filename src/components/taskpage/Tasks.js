@@ -9,13 +9,12 @@ const Tasks = ({
   todayTasks,
   onToggle,
 }) => {
-  console.log(showFiltered);
   return (
     <>
       {(showFiltered ? todayTasks : tasks).map((task) => (
         <div className="task-container">
           <Task
-            key={task.id}
+            key={task}
             task={task}
             onDelete={onDelete}
             editTask={editTask}

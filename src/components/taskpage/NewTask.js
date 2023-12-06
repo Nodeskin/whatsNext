@@ -1,4 +1,4 @@
-const NewTask = ({ onAdd, newTask, setNewTask }) => {
+const NewTask = ({ onAdd, newTask, setNewTask}) => {
   const { text, reminder, date, time } = newTask;
 
   const onSubmit = (e) => {
@@ -19,7 +19,7 @@ const NewTask = ({ onAdd, newTask, setNewTask }) => {
   };
 
   return (
-    <div class="new-tasks">
+    <div className="new-tasks">
       <form className="form-container" onSubmit={onSubmit}>
         <div className="new-task">
           <p> Add a task</p>
@@ -32,19 +32,25 @@ const NewTask = ({ onAdd, newTask, setNewTask }) => {
             ></textarea>{" "}
           </div>
           <div className="mid-input">
-              <input
-                type="date"
-                placeholder=" Set Date"
-                value={date}
-                onChange={(e) => setNewTask({ ...newTask, date: e.target.value })}
-              />
+              <div>
+                <input
+                className="inputarea"
+                  type="date"
+                  placeholder=" Set Date"
+                  value={date}
+                  onChange={(e) => setNewTask({ ...newTask, date: e.target.value })}
+                />
+              </div>
       
-              <input
-                type="time"
-                placeholder=" Set Time"
-                value={time}
-                onChange={(e) => setNewTask({ ...newTask, time: e.target.value })}
-              />
+              <div>
+                <input
+                className="inputarea"
+                  type="time"
+                  placeholder=" Set Time"
+                  value={time}
+                  onChange={(e) => setNewTask({ ...newTask, time: e.target.value })}
+                />
+              </div>
       
           </div>
           <div className="bottom-input">

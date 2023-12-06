@@ -15,6 +15,13 @@ const TaskLandingPage = () => {
   const [showAddNew, setShowAddNew] = useState(false);
   const [showLists, setShowLists] = useState(false);
   const [tasks, setTasks] = useState([]);
+  const [showUpcoming, setShowUpcoming] = useState(false);
+  const [startTime, setStartTime] = useState(new Date());
+  const endTime = new Date().startTime + 6 * 60 * 60 * 1000;
+  const upcomingHandle = () => {
+    setShowUpcoming(!showUpcoming);
+    setTasks([...tasks]);
+  };
 
   useEffect(() => {
     fetchTasks();
@@ -33,7 +40,7 @@ const TaskLandingPage = () => {
   };
 
   const showList = () => {
-    setShowLists(true);
+    setShowLists(!showLists);
     setShowAddNew(false);
     setShowFiltered(false);
   };
@@ -56,9 +63,11 @@ const TaskLandingPage = () => {
 
   const onAdd = async (task) => {
     const taskIndex = tasks.findIndex((el) => el.id === task.id);
+    console.log(task.id);
     let method = "POST";
     if (taskIndex >= 0) {
       method = "PUT";
+      // Splice Method modifies the original arrayby removing and replace.
       return tasks.splice(taskIndex, 1, task);
     }
 
@@ -72,9 +81,6 @@ const TaskLandingPage = () => {
 
     const data = await res.json();
     console.log(data);
-
-    // const id = Math.floor(Math.random() * 1000);
-    // const addNew = { id, ...task };
     setTasks([...tasks, data]);
   };
 
@@ -91,41 +97,44 @@ const TaskLandingPage = () => {
   );
   const showTodayTask = () => {
     setShowAddNew(false);
-    setShowFiltered(true);
+    setShowFiltered(!showFiltered);
   };
 
-  //TESTING DATE FORMATES
-  // console.log(moment().startOf('month'))
-  // console.log(tasks)
-  //  console.log(moment( moment(new Date()).format("YYYY-MM-DD")).isSame(moment("10/14/2023").format("MM/DD/YYYY")))
-
   return (
-    <div className="landing-container">
-      <div className="landing-header">
-        <Header
-          showAdd={showAdd}
-          showList={showList}
-          showTodayTask={showTodayTask}
-        />
-      </div>
-
-      {showAddNew && (
-        <div class="landig-mid">
-          <NewTask onAdd={onAdd} newTask={newTask} setNewTask={setNewTask} />
-        </div>
-      )}
-      {(showLists || showFiltered) && (
-        <div className="landing-bottom">
-          <Tasks
-            tasks={tasks}
-            onDelete={onDelete}
-            editTask={editTask}
-            todayTasks={todayTasks}
-            showFiltered={showFiltered}
-            onToggle={toggleReminder}
+    <div className="main-container">
+      <div className="landing-container">
+        <div className="landing-header">
+          <Header
+            showAdd={showAdd}
+            showList={showList}
+            showTodayTask={showTodayTask}
           />
         </div>
-      )}
+
+        {(showAddNew || showUpcoming) && (
+          <div className="landig-mid">
+            <NewTask
+              onAdd={onAdd}
+              newTask={newTask}
+              setNewTask={setNewTask}
+              showUpcoming={showUpcoming}
+              upcomingHandle={upcomingHandle}
+            />
+          </div>
+        )}
+        {(showLists || showFiltered) && (
+          <div className="landing-bottom">
+            <Tasks
+              tasks={tasks}
+              onDelete={onDelete}
+              editTask={editTask}
+              todayTasks={todayTasks}
+              showFiltered={showFiltered}
+              onToggle={toggleReminder}
+            />
+          </div>
+        )}
+      </div>
     </div>
   );
 };
