@@ -15,13 +15,6 @@ const TaskLandingPage = () => {
   const [showAddNew, setShowAddNew] = useState(false);
   const [showLists, setShowLists] = useState(false);
   const [tasks, setTasks] = useState([]);
-  const [showUpcoming, setShowUpcoming] = useState(false);
-  const [startTime, setStartTime] = useState(new Date());
-  const endTime = new Date().startTime + 6 * 60 * 60 * 1000;
-  const upcomingHandle = () => {
-    setShowUpcoming(!showUpcoming);
-    setTasks([...tasks]);
-  };
 
   useEffect(() => {
     fetchTasks();
@@ -111,14 +104,13 @@ const TaskLandingPage = () => {
           />
         </div>
 
-        {(showAddNew || showUpcoming) && (
+        {showAddNew && (
           <div className="landig-mid">
             <NewTask
               onAdd={onAdd}
               newTask={newTask}
               setNewTask={setNewTask}
-              showUpcoming={showUpcoming}
-              upcomingHandle={upcomingHandle}
+              
             />
           </div>
         )}

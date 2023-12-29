@@ -32,7 +32,6 @@ const NewTask = ({ onAdd, newTask, setNewTask}) => {
             ></textarea>{" "}
           </div>
           <div className="mid-input">
-              <div>
                 <input
                 className="inputarea"
                   type="date"
@@ -40,9 +39,7 @@ const NewTask = ({ onAdd, newTask, setNewTask}) => {
                   value={date}
                   onChange={(e) => setNewTask({ ...newTask, date: e.target.value })}
                 />
-              </div>
-      
-              <div>
+             
                 <input
                 className="inputarea"
                   type="time"
@@ -50,20 +47,20 @@ const NewTask = ({ onAdd, newTask, setNewTask}) => {
                   value={time}
                   onChange={(e) => setNewTask({ ...newTask, time: e.target.value })}
                 />
-              </div>
+          
       
           </div>
           <div className="bottom-input">
             <div className="new-task-input">
+            <label>
               <input
                 type="checkbox"
                 value={reminder}
                 checked={reminder}
                 onChange={(e) =>
                   setNewTask({ ...newTask, reminder: e.currentTarget.value })
-                }
-              />
-              <label>Set Reminder</label>
+                } />
+              Set Reminder</label>
             </div>
             <div className="submit-button">
               <input type="submit" value="Save Task" />
