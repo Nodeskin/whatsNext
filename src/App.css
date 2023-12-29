@@ -68,10 +68,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
 .landig-mid {
-  width: 92%;
   display: flex;
 }
 
@@ -210,6 +210,7 @@
 
   .new-task{
     align-items: center;
+    justify-content: center;
   }
 
   .mid-input input {
